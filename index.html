@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentine 🤎</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&family=Parisienne&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    text-align:center;
+    color:white;
+
+    background:
+    linear-gradient(rgba(92,47,29,0.85),rgba(60,28,18,0.9)),
+    url('https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=1200&q=80');
+
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+    overflow-x:hidden;
+}
+
+body::before{
+    content:"🤎 🤍 🤎 🤍 🤎";
+    position:fixed;
+    top:-100%;
+    left:0;
+    width:100%;
+    font-size:40px;
+    opacity:0.07;
+    animation:float 20s linear infinite;
+}
+
+@keyframes float{
+    0%{transform:translateY(0);}
+    100%{transform:translateY(200%);}
+}
+
+.start-screen{
+    position:fixed;
+    width:100%;
+    height:100vh;
+    background:linear-gradient(to bottom,#5c2f1d,#3b1f13);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    z-index:10;
+}
+
+.start-screen button{
+    padding:15px 35px;
+    border:none;
+    border-radius:30px;
+    font-size:18px;
+    cursor:pointer;
+    background:#d6a77a;
+    color:#3b1f13;
+    transition:0.3s;
+}
+
+.start-screen button:hover{
+    transform:scale(1.1);
+}
+
+.content{
+    display:none;
+    padding:50px 20px;
+}
+
+h1{
+    font-family:'Great Vibes',cursive;
+    font-size:48px;
+    margin-bottom:20px;
+}
+
+.subtitle{
+    margin-bottom:40px;
+    font-size:18px;
+}
+
+.frame{
+    background:#f5e1d3;
+    padding:20px;
+    border-radius:20px;
+    width:280px;
+    margin:30px auto;
+    box-shadow:0 10px 25px rgba(0,0,0,0.4);
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.frame:hover{
+    transform:scale(1.05);
+}
+
+.frame img{
+    width:100%;
+    border-radius:15px;
+}
+
+.frame p{
+    margin-top:10px;
+    font-family:'Parisienne',cursive;
+    font-size:22px;
+    color:#5c2f1d;
+}
+
+.hidden{
+    display:none;
+}
+
+.message-btn{
+    margin-top:40px;
+    padding:12px 25px;
+    border:none;
+    border-radius:20px;
+    background:#d6a77a;
+    color:#3b1f13;
+    cursor:pointer;
+}
+
+/* ✅ FONT PESAN DIGANTI DI SINI */
+.message{
+    display:none;
+    margin-top:20px;
+    font-family:'Playfair Display', serif;
+    font-size:24px;
+    font-weight:500;
+    line-height:1.6;
+    letter-spacing:0.5px;
+    animation:fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn{
+    from{opacity:0;transform:translateY(10px);}
+    to{opacity:1;transform:translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="start-screen" id="startScreen">
+    <h1 style="font-family:'Great Vibes',cursive;">Klik Untuk Memulai Sayang🤎</h1>
+    <button onclick="start()">Mulai</button>
+</div>
+
+<audio id="music" loop>
+<source src="romantis.mp3" type="audio/mpeg">
+</audio>
+
+<div class="content" id="content">
+
+<h1>Happy Valentine's Day Sayang 🤎</h1>
+<p class="subtitle">Kamu adalah alasan aku tersenyum dan semangat setiap harinya 🤎</p>
+
+<div class="frame" onclick="togglePhoto(this)">
+    <img src="foto1.jpg" class="hidden">
+    <p>Momen Favoritku 🤎✨</p>
+</div>
+
+<div class="frame" onclick="togglePhoto(this)">
+    <img src="foto2.jpg" class="hidden">
+    <p>Selalu Bersamamu 🤎🌹</p>
+</div>
+
+<div class="frame" onclick="togglePhoto(this)">
+    <img src="foto3.jpg" class="hidden">
+    <p>My Favorite Person 🤎💍</p>
+</div>
+
+<button class="message-btn" onclick="showMessage()">Klik Untuk Pesan 💌</button>
+
+<div class="message" id="message">
+Sayangku Egi 🤎 <br><br>
+Terima kasih sudah hadir dalam hidupku.  
+aku mau bilang kalau aku bersyukur banget punya kamu yang selalu sabar ngadepin mood aku yang suka naik turun nggak jelas. Makasih ya udah jadi comfort place paling aman, tempat aku sambat soal kerjaan atau hal random lainnya, dan makasih juga udah selalu ada buat nemenin makan, main game,nonton film dan ngobrol gak jelas bareng. Semoga kita makin solid, makin jarang berantem buat hal-hal sepele, dan yang jelas makin sayang satu sama lain karena jujurly aku udah nyaman banget sama kamu, so please stay with me terus ya, love you most!
+Aku ingin terus berjalan bersamamu, hari ini, besok, dan seterusnya.......... 🤎  
+I love you more than words can say.
+</div>
+
+</div>
+
+<script>
+function start(){
+    document.getElementById("startScreen").style.display="none";
+    document.getElementById("content").style.display="block";
+
+    let music = document.getElementById("music");
+    music.volume = 0;
+    music.play();
+
+    let fade = setInterval(function(){
+        if(music.volume < 0.9){
+            music.volume += 0.05;
+        } else {
+            clearInterval(fade);
+        }
+    },200);
+}
+
+function togglePhoto(element){
+    let img = element.querySelector("img");
+    img.classList.toggle("hidden");
+}
+
+function showMessage(){
+    document.getElementById("message").style.display="block";
+}
+</script>
+
+</body>
+</html>
